@@ -1,1 +1,71 @@
+Amazon Supply Chain Intelligence — Full Stack Delivery Risk Platform
+
+This submission-ready project predicts delivery delay risk levels:
+- 0 = On-Time
+- 1 = At Risk
+- 2 = Delayed
+
+Tech Stack
+- Frontend: Vite + React + JavaScript
+- Backend: FastAPI + Python
+- Model: RandomForest (loaded from final_model.pkl)
+- Storage: SQLite for prediction history
+
+Project Structure
+- backend/app/main.py → FastAPI endpoints
+- backend/app/preprocessing.py → raw input to engineered feature vector
+- backend/app/predictor.py → model loading and inference
+- backend/app/database.py → history persistence
+- backend/app/generate_metrics.py → comparative model evaluation generator
+- frontend/src/pages/DashboardPage.jsx → integrated UI for predict/batch/metrics/history
+
+Features
+- Login with JWT token
+- Single prediction API + UI form
+- Batch CSV prediction API + UI upload
+- Model metrics dashboard (from model_metrics.json)
+- Prediction history table
+
+Backend Setup (Windows PowerShell)
+1) Open terminal in Amazon-Delivery-ML folder
+2) Create and activate virtual environment:
+	python -m venv .venv
+	.\.venv\Scripts\Activate.ps1
+3) Install dependencies:
+	pip install -r backend/requirements.txt
+4) (Optional) set env vars from backend/.env.example
+5) Start backend:
+	uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
+
+Frontend Setup
+1) Open second terminal in Amazon-Delivery-ML/frontend
+2) Install dependencies:
+	npm install
+3) (Optional) set API base URL:
+	set VITE_API_BASE_URL=http://127.0.0.1:8000/api
+4) Start frontend:
+	npm run dev
+
+Default Demo Login
+- username: admin
+- password: admin123
+
+Metrics Generation (Comparative Evaluation)
+To regenerate model comparison metrics from feature_data.csv:
+- python -m backend.app.generate_metrics
+
+API Endpoints
+- GET /api/health
+- POST /api/auth/login
+- POST /api/predict
+- POST /api/predict/batch
+- GET /api/metrics
+- GET /api/history
+
+Batch CSV Template
+- Use backend/sample_batch_input.csv as template for upload.
+
+Notes
+- Ensure final_model.pkl exists at project root (already present).
+- For submission, replace default credentials and JWT secret in production.
 

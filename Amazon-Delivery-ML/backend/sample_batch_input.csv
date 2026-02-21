@@ -1,0 +1,4 @@
+delivery_partner,package_type,vehicle_type,delivery_mode,region,weather_condition,distance_km,package_weight_kg,delivery_rating,delivery_cost
+delhivery,electronics,bike,same day,west,clear,120,8,4,950
+amazon logistics,documents,van,standard,north,foggy,340,2,5,1400
+blue dart,pharmacy,ev bike,express,central,rainy,65,1.2,4,520

@@ -119,14 +119,13 @@ export default function ModelPerformancePage() {
         <div className="card-base p-5">
           <h3 className="text-slate-900">ROC & Precision-Recall</h3>
           <p className="mt-3 text-sm text-slate-600">
-            Multi-class ROC and Precision-Recall are represented in this build
-            through comparative threshold-ready metrics and class-wise
-            evaluation in Analytics.
+            Multi-class ROC and precision-recall insights are shown through
+            class-wise evaluation and comparative metrics.
           </p>
           <div className="mt-4 space-y-2 text-sm text-slate-700">
-            <p>• ROC-ready classes: On-Time, At Risk, Delayed</p>
-            <p>• Precision proxy: weighted F1 alignment</p>
-            <p>• Recall proxy: macro F1 alignment</p>
+            <p>• Classes: On-Time, At Risk, Delayed</p>
+            <p>• Precision: weighted F1 alignment</p>
+            <p>• Recall: macro F1 alignment</p>
           </div>
         </div>
       </section>

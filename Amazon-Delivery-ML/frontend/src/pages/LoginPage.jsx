@@ -29,7 +29,10 @@ export default function LoginPage() {
 
   return (
     <main className="grid min-h-screen place-items-center bg-slate-100 px-4 fade-in">
-      <form onSubmit={onSubmit} className="card-base w-full max-w-md p-8">
+      <form
+        onSubmit={onSubmit}
+        className="card-base no-hover-card w-full max-w-md p-8"
+      >
         <p className="text-xs uppercase tracking-wide text-orange-500">
           Secure Access
         </p>
@@ -57,7 +60,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="primary-btn mt-6 w-full disabled:opacity-70"
+          className="primary-btn no-hover-btn mt-6 w-full disabled:opacity-70"
         >
           {loading ? "Signing in..." : "Sign In"}
         </button>

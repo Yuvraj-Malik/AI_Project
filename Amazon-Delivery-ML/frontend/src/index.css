@@ -85,7 +85,6 @@ button {
 }
 
 .card-base:hover {
-  transform: translateY(-4px);
   border-color: rgba(255, 255, 255, 0.72);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.11);
 }
@@ -119,6 +118,27 @@ button {
 .primary-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(255, 153, 0, 0.25);
+}
+
+.no-hover-card:hover {
+  transform: none !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06) !important;
+}
+
+.no-hover-card:hover p,
+.no-hover-card:hover span,
+.no-hover-card:hover label,
+.no-hover-card:hover td,
+.no-hover-card:hover li,
+.no-hover-card:hover .soft-label {
+  font-weight: inherit !important;
+  color: inherit !important;
+}
+
+.no-hover-btn:hover {
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .secondary-btn {

@@ -41,7 +41,7 @@ export default function SettingsPage() {
             value={mode}
             onChange={(event) => setMode(event.target.value)}
           >
-            <option value="corporate">Corporate (Default)</option>
+            <option value="corporate">Corporate</option>
             <option value="dark">Dark</option>
             <option value="light">Light</option>
           </select>

@@ -45,9 +45,16 @@ export default function AnalyticsPage() {
   ];
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h3 className="text-lg font-semibold text-slate-900">
+    <div className="space-y-6 fade-in">
+      <section>
+        <h1 className="text-slate-900">Analytics</h1>
+        <p className="soft-label mt-1">
+          Deeper model insights, balance analysis, and correlation trends
+        </p>
+      </section>
+
+      <section className="card-base p-5">
+        <h3 className="text-slate-900">
           Confusion Matrix (Heatmap-style Table)
         </h3>
         <div className="mt-4 overflow-x-auto">
@@ -91,10 +98,8 @@ export default function AnalyticsPage() {
       </section>
 
       <section className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="text-lg font-semibold text-slate-900">
-            Feature Importance
-          </h3>
+        <div className="card-base p-5">
+          <h3 className="text-slate-900">Feature Importance</h3>
           <div className="h-72">
             <ResponsiveContainer>
               <BarChart data={data.feature_importance}>
@@ -114,8 +119,8 @@ export default function AnalyticsPage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="text-lg font-semibold text-slate-900">
+        <div className="card-base p-5">
+          <h3 className="text-slate-900">
             Class Distribution Before & After SMOTE
           </h3>
           <div className="h-72">
@@ -136,10 +141,8 @@ export default function AnalyticsPage() {
       </section>
 
       <section className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="text-lg font-semibold text-slate-900">
-            Processing Time vs Risk
-          </h3>
+        <div className="card-base p-5">
+          <h3 className="text-slate-900">Processing Time vs Risk</h3>
           <div className="h-72">
             <ResponsiveContainer>
               <BarChart data={data.processing_vs_risk}>
@@ -155,10 +158,8 @@ export default function AnalyticsPage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="text-lg font-semibold text-slate-900">
-            Distance vs Risk Scatter Plot
-          </h3>
+        <div className="card-base p-5">
+          <h3 className="text-slate-900">Distance vs Risk Scatter Plot</h3>
           <div className="h-72">
             <ResponsiveContainer>
               <ScatterChart>
@@ -194,10 +195,8 @@ export default function AnalyticsPage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h3 className="text-lg font-semibold text-slate-900">
-          Confusion Matrix Flattened Data
-        </h3>
+      <section className="card-base p-5">
+        <h3 className="text-slate-900">Confusion Matrix Flattened Data</h3>
         <div className="mt-4 grid grid-cols-1 gap-2 md:grid-cols-3">
           {confusionData.map((cell) => (
             <div

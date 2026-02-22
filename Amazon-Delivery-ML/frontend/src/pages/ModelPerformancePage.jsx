@@ -34,11 +34,16 @@ export default function ModelPerformancePage() {
   }
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h3 className="text-lg font-semibold text-slate-900">
-          Comparative Model Metrics
-        </h3>
+    <div className="space-y-6 fade-in">
+      <section>
+        <h1 className="text-slate-900">Model Performance</h1>
+        <p className="soft-label mt-1">
+          Comparative metrics and model behavior overview
+        </p>
+      </section>
+
+      <section className="card-base p-5">
+        <h3 className="text-slate-900">Comparative Model Metrics</h3>
         <div className="mt-4 overflow-x-auto">
           <table className="min-w-full border-collapse text-sm">
             <thead>
@@ -84,10 +89,8 @@ export default function ModelPerformancePage() {
       </section>
 
       <section className="grid grid-cols-1 gap-6 xl:grid-cols-3">
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm xl:col-span-2">
-          <h3 className="text-lg font-semibold text-slate-900">
-            Training vs Validation Accuracy
-          </h3>
+        <div className="card-base p-5 xl:col-span-2">
+          <h3 className="text-slate-900">Training vs Validation Accuracy</h3>
           <div className="h-72">
             <ResponsiveContainer>
               <LineChart data={trendData}>
@@ -113,10 +116,8 @@ export default function ModelPerformancePage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h3 className="text-lg font-semibold text-slate-900">
-            ROC & Precision-Recall
-          </h3>
+        <div className="card-base p-5">
+          <h3 className="text-slate-900">ROC & Precision-Recall</h3>
           <p className="mt-3 text-sm text-slate-600">
             Multi-class ROC and Precision-Recall are represented in this build
             through comparative threshold-ready metrics and class-wise

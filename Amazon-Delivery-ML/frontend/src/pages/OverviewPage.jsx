@@ -37,7 +37,14 @@ export default function OverviewPage() {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 fade-in">
+      <section>
+        <h1 className="text-slate-900">Overview</h1>
+        <p className="soft-label mt-1">
+          Key delivery KPIs, risk distribution, and feature influence
+        </p>
+      </section>
+
       <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
         <KpiCard
           label="Total Orders"
@@ -57,10 +64,8 @@ export default function OverviewPage() {
       </section>
 
       <section className="grid grid-cols-1 gap-6 xl:grid-cols-3">
-        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm xl:col-span-1">
-          <h3 className="text-sm font-semibold text-slate-900">
-            Risk Distribution
-          </h3>
+        <div className="card-base p-5 xl:col-span-1">
+          <h3 className="text-slate-900">Risk Distribution</h3>
           <div className="h-72">
             <ResponsiveContainer>
               <PieChart>
@@ -84,10 +89,8 @@ export default function OverviewPage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm xl:col-span-2">
-          <h3 className="text-sm font-semibold text-slate-900">
-            Delivery Risk Trend
-          </h3>
+        <div className="card-base p-5 xl:col-span-2">
+          <h3 className="text-slate-900">Delivery Risk Trend</h3>
           <div className="h-72">
             <ResponsiveContainer>
               <LineChart data={data.risk_trend}>
@@ -120,8 +123,8 @@ export default function OverviewPage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-        <h3 className="text-sm font-semibold text-slate-900">Feature Impact</h3>
+      <section className="card-base p-5">
+        <h3 className="text-slate-900">Feature Impact</h3>
         <div className="h-80">
           <ResponsiveContainer>
             <BarChart data={data.feature_impact}>

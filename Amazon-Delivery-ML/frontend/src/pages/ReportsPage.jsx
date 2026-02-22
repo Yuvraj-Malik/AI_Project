@@ -62,23 +62,20 @@ export default function ReportsPage() {
   }
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h3 className="text-lg font-semibold text-slate-900">Reports</h3>
-        <p className="mt-2 text-sm text-slate-600">
+    <div className="space-y-6 fade-in">
+      <section className="card-base p-5">
+        <h1 className="text-slate-900">Reports</h1>
+        <p className="mt-2 soft-label">
           Generate downloadable PDF including risk summary, model summary, and
           feature impact analysis.
         </p>
-        <button
-          onClick={downloadPdf}
-          className="mt-4 rounded-md bg-[#FF9900] px-4 py-2 text-sm font-semibold text-slate-900"
-        >
+        <button onClick={downloadPdf} className="primary-btn mt-4 text-sm">
           Download PDF Report
         </button>
       </section>
 
       <section className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="card-base p-5">
           <h4 className="font-semibold text-slate-900">Risk Summary</h4>
           <div className="mt-3 space-y-2">
             {Object.entries(report.risk_summary).map(([key, value]) => (
@@ -92,7 +89,7 @@ export default function ReportsPage() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="card-base p-5">
           <h4 className="font-semibold text-slate-900">Model Summary</h4>
           <p className="mt-2 text-sm text-slate-700">
             Name: {report.model_summary.name}

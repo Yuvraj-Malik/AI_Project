@@ -1,23 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { apiService } from "../api/client";
+import {
+  applyThemeMode,
+  getStoredThemeMode,
+  setStoredThemeMode,
+} from "../theme/themeManager";
 
 export default function SettingsPage() {
-  const [mode, setMode] = useState("corporate");
-  const [selectedModel, setSelectedModel] = useState("RandomForestClassifier");
+  const [mode, setMode] = useState(getStoredThemeMode());
+  const [modelName, setModelName] = useState("RandomForestClassifier");
+
+  useEffect(() => {
+    setStoredThemeMode(mode);
+    applyThemeMode(mode);
+  }, [mode]);
+
+  useEffect(() => {
+    apiService
+      .aboutModel()
+      .then((response) =>
+        setModelName(response.data.algorithm || "RandomForestClassifier"),
+      )
+      .catch(() => setModelName("RandomForestClassifier"));
+  }, []);
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h3 className="text-lg font-semibold text-slate-900">Settings</h3>
-        <p className="mt-2 text-sm text-slate-600">
+    <div className="space-y-6 fade-in">
+      <section className="card-base p-5">
+        <h1 className="text-slate-900">Settings</h1>
+        <p className="mt-2 soft-label">
           Configure dashboard preferences and model selection for presentations.
         </p>
       </section>
 
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <section className="card-base p-5">
         <label className="block text-sm font-medium text-slate-700">
           Theme Mode
           <select
-            className="mt-2 w-full max-w-sm rounded-md border border-slate-300 px-3 py-2"
+            className="mt-2 w-full max-w-sm rounded-xl border border-slate-300 px-3 py-2.5"
             value={mode}
             onChange={(event) => setMode(event.target.value)}
           >
@@ -27,25 +47,9 @@ export default function SettingsPage() {
           </select>
         </label>
 
-        <label className="mt-4 block text-sm font-medium text-slate-700">
-          Active Model
-          <select
-            className="mt-2 w-full max-w-sm rounded-md border border-slate-300 px-3 py-2"
-            value={selectedModel}
-            onChange={(event) => setSelectedModel(event.target.value)}
-          >
-            <option value="RandomForestClassifier">
-              RandomForestClassifier
-            </option>
-            <option value="GradientBoostingClassifier">
-              GradientBoostingClassifier
-            </option>
-            <option value="XGBoost">XGBoost</option>
-          </select>
-        </label>
-
-        <p className="mt-4 text-sm text-slate-500">
-          Current mode: {mode} · Current model: {selectedModel}
+        <p className="mt-4 text-sm text-slate-500">Current mode: {mode}</p>
+        <p className="mt-1 text-sm text-slate-500">
+          Active model is controlled by backend: {modelName}
         </p>
       </section>
     </div>

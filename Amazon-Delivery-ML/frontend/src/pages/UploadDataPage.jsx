@@ -37,10 +37,10 @@ export default function UploadDataPage() {
     : [];
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h3 className="text-lg font-semibold text-slate-900">Upload Data</h3>
-        <p className="mt-1 text-sm text-slate-500">
+    <div className="space-y-6 fade-in">
+      <section className="card-base p-5">
+        <h1 className="text-slate-900">Upload Data</h1>
+        <p className="mt-1 soft-label">
           Required columns: order_volume, warehouse_time, shipment_distance,
           traffic_level, weather_indicator, historical_performance
         </p>
@@ -53,11 +53,11 @@ export default function UploadDataPage() {
             type="file"
             accept=".csv"
             onChange={(event) => setFile(event.target.files?.[0] || null)}
-            className="rounded-md border border-slate-300 bg-white px-3 py-2 text-sm"
+            className="rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm"
           />
           <button
             disabled={loading || !file}
-            className="rounded-md bg-[#FF9900] px-4 py-2 text-sm font-semibold text-slate-900 disabled:opacity-70"
+            className="primary-btn text-sm disabled:opacity-70"
           >
             {loading ? "Processing..." : "Upload CSV File"}
           </button>
@@ -70,19 +70,19 @@ export default function UploadDataPage() {
       {result ? (
         <>
           <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="card-base p-4">
               <p className="text-xs text-slate-500">Rows</p>
               <p className="mt-2 text-2xl font-bold text-slate-900">
                 {result.rows}
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="card-base p-4">
               <p className="text-xs text-slate-500">Avg Order Volume</p>
               <p className="mt-2 text-2xl font-bold text-slate-900">
                 {result.basic_stats.avg_order_volume}
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="card-base p-4">
               <p className="text-xs text-slate-500">Avg Distance</p>
               <p className="mt-2 text-2xl font-bold text-slate-900">
                 {result.basic_stats.avg_shipment_distance}
@@ -91,10 +91,8 @@ export default function UploadDataPage() {
           </section>
 
           <section className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">
-                Prediction Summary
-              </h3>
+            <div className="card-base p-5">
+              <h3 className="text-slate-900">Prediction Summary</h3>
               <div className="h-72">
                 <ResponsiveContainer>
                   <PieChart>
@@ -118,10 +116,8 @@ export default function UploadDataPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">
-                Data Preview
-              </h3>
+            <div className="card-base p-5">
+              <h3 className="text-slate-900">Data Preview</h3>
               <div className="mt-3 max-h-72 overflow-auto">
                 <table className="min-w-full border-collapse text-xs">
                   <thead>

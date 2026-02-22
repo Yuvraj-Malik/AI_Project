@@ -52,15 +52,10 @@ export default function LivePredictionPage() {
   };
 
   return (
-    <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-      <form
-        onSubmit={onSubmit}
-        className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
-      >
-        <h3 className="text-lg font-semibold text-slate-900">
-          Live Prediction
-        </h3>
-        <p className="mt-1 text-sm text-slate-500">
+    <div className="grid grid-cols-1 gap-6 xl:grid-cols-2 fade-in">
+      <form onSubmit={onSubmit} className="card-base p-6">
+        <h1 className="text-slate-900">Live Prediction</h1>
+        <p className="mt-1 soft-label">
           Enter operational values to predict delivery risk.
         </p>
 
@@ -68,7 +63,7 @@ export default function LivePredictionPage() {
           <label className="text-sm font-medium text-slate-700">
             Order Volume
             <input
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2.5"
               name="order_volume"
               type="number"
               value={form.order_volume}
@@ -78,7 +73,7 @@ export default function LivePredictionPage() {
           <label className="text-sm font-medium text-slate-700">
             Warehouse Time
             <input
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2.5"
               name="warehouse_time"
               type="number"
               value={form.warehouse_time}
@@ -88,7 +83,7 @@ export default function LivePredictionPage() {
           <label className="text-sm font-medium text-slate-700">
             Shipment Distance
             <input
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2.5"
               name="shipment_distance"
               type="number"
               value={form.shipment_distance}
@@ -98,7 +93,7 @@ export default function LivePredictionPage() {
           <label className="text-sm font-medium text-slate-700">
             Historical Performance
             <input
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2.5"
               name="historical_performance"
               type="number"
               step="0.01"
@@ -109,7 +104,7 @@ export default function LivePredictionPage() {
           <label className="text-sm font-medium text-slate-700">
             Traffic Level
             <select
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2.5"
               name="traffic_level"
               value={form.traffic_level}
               onChange={onChange}
@@ -124,7 +119,7 @@ export default function LivePredictionPage() {
           <label className="text-sm font-medium text-slate-700">
             Weather
             <select
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2"
+              className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2.5"
               name="weather_indicator"
               value={form.weather_indicator}
               onChange={onChange}
@@ -138,10 +133,7 @@ export default function LivePredictionPage() {
           </label>
         </div>
 
-        <button
-          className="mt-6 rounded-md bg-[#FF9900] px-5 py-2 font-semibold text-slate-900"
-          disabled={loading}
-        >
+        <button className="primary-btn mt-6" disabled={loading}>
           {loading ? "Predicting..." : "Predict Risk"}
         </button>
         {error ? (
@@ -149,10 +141,8 @@ export default function LivePredictionPage() {
         ) : null}
       </form>
 
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-        <h3 className="text-lg font-semibold text-slate-900">
-          Prediction Result
-        </h3>
+      <div className="card-base p-6">
+        <h2 className="text-slate-900">Prediction Result</h2>
         {!result ? (
           <p className="mt-4 text-sm text-slate-500">
             Run a prediction to view class and confidence.
